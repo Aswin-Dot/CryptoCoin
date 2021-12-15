@@ -3,9 +3,12 @@
     "name": "cryptocurrency",
     "slug": "cryptocurrency",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "splash": {
+      "image": "./assets/images/splash/ios/launch_screen.png",
+      "backgroundColor": "#7c63f1",
+      "resizeMode": "cover"
+    }
   },
   "name": "cryptocurrency"
 }
