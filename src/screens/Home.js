@@ -1,41 +1,26 @@
 import React from 'react';
 import {
-    StyleSheet,
     View,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    Image,
+    ImageBackground,
+    ScrollView,
+    Dimensions
 } from 'react-native';
+import { COLORS, SIZES } from "../constants";
+
+import{ Header } from "../components/Home";
 
 const Home = ({ navigation }) => {
     return (
-        <View style={styles.container}>
-            <Text>Home</Text>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("CryptoDetail")}
-            >
-                <Text>Navigate to CryptoDetail</Text>
-            </TouchableOpacity>
-        </View>
+        <ScrollView>
+            <View style={{ flex: 1, paddingBottom: 100 }}>
+                {/* Header component */}
+                <Header/>
+            </View>
+        </ScrollView>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    shadow: {
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.30,
-        shadowRadius: 4.65,
-
-        elevation: 8,
-    }
-})
 
 export default Home;

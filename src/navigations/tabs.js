@@ -35,8 +35,6 @@ const Tabs = () => {
             }}>
                 {children}
             </LinearGradient>
-            
-
         </TouchableOpacity>
     )
 
