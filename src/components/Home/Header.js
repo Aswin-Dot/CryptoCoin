@@ -49,7 +49,6 @@ const Header = () => {
               backgroundColor: COLORS.white,
               borderRadius: SIZES.radius,
               overflow: "visible",
-              zIndex: 999,
               elevation: 3,
               marginBottom: SIZES.base
             }}
@@ -106,9 +105,9 @@ const Header = () => {
         style={{
           width: "100%",
           height: (dimensions.window.height * 40) / 100,
-          ...styles.shadow,
           overflow: "visible",
-          marginBottom: "30%",
+          marginBottom: "22.5%",
+          ...styles.shadow,
         }}
       >
         <ImageBackground

@@ -49,7 +49,7 @@ const Tabs = () => {
             right: 0,
             elevation: 0,
             backgroundColor: COLORS.white,
-            height: "10%",
+            height: "8.5%",
             borderTopColor: "transparent",
           },
           headerShown: false,
