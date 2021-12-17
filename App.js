@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { CryptoDetail, Transaction } from "./src/screens";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 import {
@@ -13,7 +13,7 @@ import {
 
 import Tabs from "./src/navigations/tabs";
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   let [fontsLoaded] = useFonts({
@@ -68,6 +68,7 @@ const App = () => {
             headerShown: false,
           }}
           initialRouteName={"Home"}
+          gestureDirection="vertical"
         >
           <Stack.Screen name="Tabs" component={Tabs} />
           <Stack.Screen name="CryptoDetail" component={CryptoDetail} />

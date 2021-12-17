@@ -3,19 +3,20 @@ import {
     StyleSheet,
     View,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    ScrollView
 } from 'react-native';
+
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { BackHeader } from '../components/shared';
 
 const CryptoDetail = ({ navigation }) => {
     return (
-        <View style={styles.container}>
-            <Text>CryptoDetail</Text>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Transaction")}
-            >
-                <Text>Navigate to Transaction</Text>
-            </TouchableOpacity>
-        </View>
+        <SafeAreaView>
+            {/* Back Header */}
+            <BackHeader favorite={true}/>
+        </SafeAreaView>
     )
 }
 

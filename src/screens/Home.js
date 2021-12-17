@@ -1,10 +1,8 @@
 import React from 'react';
 import {
     View,
-    Text,
     ScrollView,
 } from 'react-native';
-import { COLORS, SIZES } from "../constants";
 
 import {
   Header,
@@ -13,12 +11,12 @@ import {
   TransactionHistory,
 } from "../components/Home";
 
-const Home = ({ navigation }) => {
+const Home = () => {
     return (
       <ScrollView>
         <View style={{ flex: 1, paddingBottom: 110 }}>
           {/* Header component */}
-          <Header />
+          <Header  />
 
           {/* Price Alert */}
           <PriceAlert />

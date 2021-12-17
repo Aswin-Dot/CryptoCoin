@@ -8,13 +8,13 @@ import {
   Dimensions
 } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 import { Entypo } from "@expo/vector-icons";
 
 import {
   dummyData,
   icons,
   images,
-  theme,
   COLORS,
   SIZES,
   FONTS,
@@ -23,6 +23,9 @@ import {
 const window = Dimensions.get("window");
 
 const Header = () => {
+
+    const navigation = useNavigation();
+
     const [dimensions, setDimensions] = useState({ window });
     const [trending, setTrending] = useState(dummyData.trendingCurrencies)
 
@@ -39,7 +42,9 @@ const Header = () => {
     const renderTrending = ({item,index}) => {
         return (
           <TouchableOpacity
-            onPress={() => console.log(item.currency)}
+            onPress={() => navigation.navigate("CryptoDetail", {
+              currency: item
+            })}
             style={{
               padding: SIZES.padding,
               width: 180,
@@ -50,7 +55,7 @@ const Header = () => {
               borderRadius: SIZES.radius,
               overflow: "visible",
               elevation: 3,
-              marginBottom: SIZES.base
+              marginBottom: SIZES.base,
             }}
           >
             {/*  currency */}
@@ -176,7 +181,7 @@ const Header = () => {
             </Text>
           </View>
 
-          {/* Trading */}
+          {/* Trending */}
           <View style={{ position: "absolute", bottom: "-30%" }}>
             <Text
               style={{
