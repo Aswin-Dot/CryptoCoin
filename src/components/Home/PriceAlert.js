@@ -21,7 +21,7 @@ const PriceAlert = () => {
           flexDirection: "row",
           justifyContent: "space-between",
           marginHorizontal: SIZES.padding,
-          marginTop: SIZES.radius,
+          marginVertical: SIZES.base,
           backgroundColor: COLORS.white,
           paddingVertical: SIZES.radius,
           borderRadius: SIZES.radius,

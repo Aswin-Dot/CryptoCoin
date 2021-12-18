@@ -14,7 +14,7 @@ const Notice = () => {
         style={{
           flexDirection: "column",
           marginHorizontal: SIZES.padding,
-          marginTop: SIZES.base * 2,
+          marginVertical: SIZES.base ,
           backgroundColor: COLORS.secondary,
           padding: SIZES.radius,
           borderRadius: SIZES.radius,

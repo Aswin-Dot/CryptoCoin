@@ -8,13 +8,17 @@ import {
   Header,
   PriceAlert,
   Notice,
-  TransactionHistory,
 } from "../components/Home";
+import { TransactionHistory } from "../components/shared"
+
+import {
+  dummyData,
+} from "../constants";
 
 const Home = () => {
     return (
       <ScrollView>
-        <View style={{ flex: 1, paddingBottom: 110 }}>
+        <View style={{ flex: 1, paddingBottom: 100 }}>
           {/* Header component */}
           <Header  />
 
@@ -25,7 +29,7 @@ const Home = () => {
           <Notice/>
 
           {/* Transaction */}
-          <TransactionHistory/>
+          <TransactionHistory transactions={dummyData.transactionHistory}/>
         </View>
       </ScrollView>
     );

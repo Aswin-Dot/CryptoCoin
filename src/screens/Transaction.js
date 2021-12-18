@@ -1,35 +1,32 @@
-import React from 'react';
-import {
-    StyleSheet,
-    View,
-    Text
-} from 'react-native';
+import React from "react";
+import { View, ScrollView } from "react-native";
 
-const Transaction = () => {
-    return (
-        <View style={styles.container}>
-            <Text>Transaction</Text>
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import { BackHeader } from "../components/shared";
+import { Trade } from "../components/Transaction";
+import { TransactionHistory } from "../components/shared";
+
+const Transaction = ({ route }) => {
+  let { currency } = route.params;
+
+  return (
+    <SafeAreaView>
+      {/* Back Header */}
+      <BackHeader favorite={false} />
+
+      {/* Body */}
+      <ScrollView>
+        <View style={{ flex: 1, paddingBottom: 50 }}>
+          {/* chart */}
+          <Trade coin={currency} />
+
+          {/* Transaction */}
+          <TransactionHistory transactions={currency.transactionHistory} />
         </View>
-    )
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    shadow: {
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.30,
-        shadowRadius: 4.65,
-
-        elevation: 8,
-    }
-})
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 export default Transaction;

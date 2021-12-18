@@ -42,9 +42,11 @@ const Header = () => {
     const renderTrending = ({item,index}) => {
         return (
           <TouchableOpacity
-            onPress={() => navigation.navigate("CryptoDetail", {
-              currency: item
-            })}
+            onPress={() =>
+              navigation.navigate("CryptoDetail", {
+                currency: item,
+              })
+            }
             style={{
               padding: SIZES.padding,
               width: 180,
@@ -111,7 +113,7 @@ const Header = () => {
           width: "100%",
           height: (dimensions.window.height * 40) / 100,
           overflow: "visible",
-          marginBottom: "22.5%",
+          marginBottom: "23.5%",
           ...styles.shadow,
         }}
       >

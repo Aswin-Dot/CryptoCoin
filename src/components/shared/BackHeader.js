@@ -8,9 +8,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
 import {
-  dummyData,
   icons,
-  images,
   COLORS,
   SIZES,
   FONTS,

@@ -9,7 +9,7 @@ import {
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs";
 import { LinearGradient } from "expo-linear-gradient";
 
-import { Home } from "../screens"
+import { Home, Transaction } from "../screens"
 import { COLORS, FONTS, icons } from "../constants"
 
 const Tab = createBottomTabNavigator()
@@ -123,7 +123,7 @@ const Tabs = () => {
         />
         <Tab.Screen
           name="Transaction"
-          component={Home}
+          component={Transaction}
           options={{
             tabBarIcon: ({ focused }) => (
               <Image
@@ -136,9 +136,7 @@ const Tabs = () => {
                 }}
               />
             ),
-            tabBarButton: (props) => (
-                <TabBarCustomButton {...props}/>
-            )
+            tabBarButton: (props) => <TabBarCustomButton {...props} />,
           }}
         />
         <Tab.Screen
