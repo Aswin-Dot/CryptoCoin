@@ -17,26 +17,28 @@ const CryptoDetail = ({ route }) => {
     let { currency } = route.params;
     
     return (
-        <SafeAreaView>
-            {/* Back Header */}
-            <BackHeader favorite={true}/>
+      <SafeAreaView>
+        {/* Back Header */}
+        <BackHeader favorite={true} />
 
-            {/* Body */}
-            <ScrollView style={{ marginBottom: 20 }}>
-                {/* chart */}
-                <Chart coin={currency}/>
+        {/* Body */}
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={{ paddingBottom: 40 }}>
+            {/* chart */}
+            <Chart coin={currency} />
 
-                {/* Wallet */}
-                <Wallet coin={currency}/>
+            {/* Wallet */}
+            <Wallet coin={currency} />
 
-                {/* About */}
-                <About coin={currency}/>
+            {/* About */}
+            <About coin={currency} />
 
-                {/* Price Alert */}
-                <PriceAlert/>
-            </ScrollView>
-        </SafeAreaView>
-    )
+            {/* Price Alert */}
+            <PriceAlert />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    );
 }
 
 export default CryptoDetail;
