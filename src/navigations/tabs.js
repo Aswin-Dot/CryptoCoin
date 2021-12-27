@@ -7,36 +7,39 @@ import {
     StyleSheet
 } from "react-native";
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs";
+import { BottomSheet, Button, ListItem } from "react-native-elements";
 import { LinearGradient } from "expo-linear-gradient";
 
-import { Home, Transaction } from "../screens"
-import { COLORS, FONTS, icons } from "../constants"
+import { Home, Transaction, Portfolio, Market, Profile } from "../screens";
+import { TabIcon } from "../components/shared"
+import { COLORS, FONTS, icons } from "../constants";
 
 const Tab = createBottomTabNavigator()
 
 const Tabs = () => {
 
-    const TabBarCustomButton = ({ children, onPress }) => (
-        <TouchableOpacity 
-            style={{
-                top: -35,
-                alignItems: "center",
-                justifyContent: "center",
-                ...styles.shadow
-            }}
-            onPress={onPress}
+    const TabBarCustomButton = ({ children }) => (
+      <TouchableOpacity
+        style={{
+          top: -35,
+          alignItems: "center",
+          justifyContent: "center",
+          ...styles.shadow,
+        }}
+        onPress={() => console.log("Press")}
+      >
+        <LinearGradient
+          colors={[COLORS.primary, COLORS.secondary]}
+          style={{
+            width: 60,
+            height: 60,
+            borderRadius: 35,
+          }}
         >
-            <LinearGradient
-                colors={[COLORS.primary, COLORS.secondary]}
-                style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: 35
-            }}>
-                {children}
-            </LinearGradient>
-        </TouchableOpacity>
-    )
+          {children}
+        </LinearGradient>
+      </TouchableOpacity>
+    );
 
     return (
       <Tab.Navigator
@@ -60,70 +63,26 @@ const Tabs = () => {
           component={Home}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "flex-start",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  source={icons.home}
-                  resizeMode="contain"
-                  style={{
-                    height: 30,
-                    width: 30,
-                    tintColor: focused ? COLORS.primary : COLORS.gray,
-                  }}
-                />
-                <Text
-                  style={{
-                    ...FONTS.body5,
-                    color: focused ? COLORS.primary : COLORS.gray,
-                  }}
-                >
-                  Home
-                </Text>
-              </View>
+              <TabIcon focused={focused} icon={icons.home} label="Home" />
             ),
           }}
         />
         <Tab.Screen
           name="Portfolio"
-          component={Home}
+          component={Portfolio}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "flex-start",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  source={icons.pie_chart}
-                  resizeMode="contain"
-                  style={{
-                    height: 30,
-                    width: 30,
-                    tintColor: focused ? COLORS.primary : COLORS.gray,
-                  }}
-                />
-                <Text
-                  style={{
-                    ...FONTS.body5,
-                    color: focused ? COLORS.primary : COLORS.gray,
-                  }}
-                >
-                  Portfolio
-                </Text>
-              </View>
+              <TabIcon
+                focused={focused}
+                icon={icons.pie_chart}
+                label="Portfolio"
+              />
             ),
           }}
         />
         <Tab.Screen
           name="Transaction"
-          component={Transaction}
+          component={Home}
           options={{
             tabBarIcon: ({ focused }) => (
               <Image
@@ -140,68 +99,28 @@ const Tabs = () => {
           }}
         />
         <Tab.Screen
-          name="Prices"
-          component={Home}
+          name="Market"
+          component={Market}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "flex-start",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  source={icons.line_graph}
-                  resizeMode="contain"
-                  style={{
-                    height: 30,
-                    width: 30,
-                    tintColor: focused ? COLORS.primary : COLORS.gray,
-                  }}
-                />
-                <Text
-                  style={{
-                    ...FONTS.body5,
-                    color: focused ? COLORS.primary : COLORS.gray,
-                  }}
-                >
-                  Prices
-                </Text>
-              </View>
+              <TabIcon
+                focused={focused}
+                icon={icons.line_graph}
+                label="Market"
+              />
             ),
           }}
         />
         <Tab.Screen
-          name="Settings"
-          component={Home}
+          name="Profile"
+          component={Profile}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "flex-start",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  source={icons.settings}
-                  resizeMode="contain"
-                  style={{
-                    height: 30,
-                    width: 30,
-                    tintColor: focused ? COLORS.primary : COLORS.gray,
-                  }}
-                />
-                <Text
-                  style={{
-                    ...FONTS.body5,
-                    color: focused ? COLORS.primary : COLORS.gray,
-                  }}
-                >
-                  Profile
-                </Text>
-              </View>
+              <TabIcon
+                focused={focused}
+                icon={icons.settings}
+                label="Profile"
+              />
             ),
           }}
         />

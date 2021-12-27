@@ -9,7 +9,8 @@ import {
   PriceAlert,
   Notice,
 } from "../components/Home";
-import { TransactionHistory } from "../components/shared"
+import { TransactionHistory } from "../components/shared";
+import MainLayout from "./MainLayout";
 
 import {
   dummyData,

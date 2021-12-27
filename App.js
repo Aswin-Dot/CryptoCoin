@@ -3,6 +3,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { CryptoDetail, Transaction } from "./src/screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { Provider } from "react-redux";
 
 import {
   useFonts,
@@ -10,6 +11,8 @@ import {
   Roboto_700Bold,
   Roboto_900Black,
 } from "@expo-google-fonts/roboto";
+
+import {store} from "./src/redux";
 
 import Tabs from "./src/navigations/tabs";
 
@@ -63,17 +66,19 @@ const App = () => {
   } else {
     return (
       <NavigationContainer onReady={onLayoutRootView}>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-          initialRouteName={"Home"}
-          gestureDirection="vertical"
-        >
-          <Stack.Screen name="Tabs" component={Tabs} />
-          <Stack.Screen name="CryptoDetail" component={CryptoDetail} />
-          <Stack.Screen name="Transaction" component={Transaction} />
-        </Stack.Navigator>
+        <Provider store={store}>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false,
+            }}
+            initialRouteName={"Tabs"}
+            gestureDirection="vertical"
+          >
+            <Stack.Screen name="Tabs" component={Tabs} />
+            <Stack.Screen name="CryptoDetail" component={CryptoDetail} />
+            <Stack.Screen name="Transaction" component={Transaction} />
+          </Stack.Navigator>
+        </Provider>
       </NavigationContainer>
     );
   }
