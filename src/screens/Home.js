@@ -1,39 +1,105 @@
 import React from 'react';
 import {
     View,
-    ScrollView,
 } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useFocusEffect } from "@react-navigation/native";
+import { connect } from 'react-redux';
 
 import {
-  Header,
   PriceAlert,
   Notice,
 } from "../components/Home";
+import { Header } from "../components/shared";
 import { TransactionHistory } from "../components/shared";
 import MainLayout from "./MainLayout";
+
+import { getCoinMarket, getHoldings } from "../redux/Market/actions";
 
 import {
   dummyData,
 } from "../constants";
 
-const Home = () => {
+const Home = ({ myHoldings, coins, getCoinMarket, getHoldings }) => {
+
+  useFocusEffect(
+    React.useCallback(() => {
+      getHoldings(myHoldings=dummyData.holdings);
+      getCoinMarket()
+    }, [])
+  );
+
     return (
-      <ScrollView>
-        <View style={{ flex: 1, paddingBottom: 100 }}>
-          {/* Header component */}
-          <Header  />
+      <MainLayout>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={{ flex: 1, paddingBottom: 100 }}>
+            {/* Header component */}
+            <Header showTrending={true} />
 
-          {/* Price Alert */}
-          <PriceAlert />
+            {/* Price Alert */}
+            <PriceAlert />
 
-          {/* Notice */}
-          <Notice/>
+            {/* Notice */}
+            <Notice />
 
-          {/* Transaction */}
-          <TransactionHistory transactions={dummyData.transactionHistory}/>
-        </View>
-      </ScrollView>
+            {/* Transaction */}
+            <TransactionHistory transactions={dummyData.transactionHistory} />
+          </View>
+        </ScrollView>
+      </MainLayout>
     );
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    myHoldings: state.market.myHoldings,
+    coins: state.market.coins
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getHoldings: (
+      holdings,
+      currency,
+      orderBy,
+      sparkline,
+      priceChangePerc,
+      perPage,
+      page
+    ) =>
+      dispatch(
+        getHoldings(
+          holdings,
+          currency,
+          orderBy,
+          sparkline,
+          priceChangePerc,
+          perPage,
+          page
+        )
+      ),
+    getCoinMarket: (
+      holdings,
+      currency,
+      orderBy,
+      sparkline,
+      priceChangePerc,
+      perPage,
+      page
+    ) =>
+      dispatch(
+        getCoinMarket(
+          holdings,
+          currency,
+          orderBy,
+          sparkline,
+          priceChangePerc,
+          perPage,
+          page
+        )
+      ),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

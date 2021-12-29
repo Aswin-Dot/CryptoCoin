@@ -1,8 +1,7 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 
-import { COLORS, FONTS, icons } from "../../constants";
+import { COLORS, FONTS } from "../../constants";
 
 const TabIcon = ({ focused, isTrade, icon, label }) => (
   <View

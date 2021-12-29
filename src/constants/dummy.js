@@ -495,6 +495,43 @@ const chartOptions = [
     }
 ]
 
-const dummyData = { portfolio, trendingCurrencies, transactionHistory, chartOptions };
+export const holdings = [
+  {
+    id: "bitcoin",
+    qty: 888,
+  },
+  {
+    id: "ethereum",
+    qty: 188,
+  },
+  {
+    id: "dogecoin",
+    qty: 88888,
+  },
+];
+
+export const profile = {
+  id: 8888888,
+  email: "aswincse10@gmail.com",
+};
+
+export const settings = {
+  launchScreen: "Home",
+  currency: "USD",
+  appearance: "Dark",
+  language: "English",
+  faceId: true,
+};
+
+
+//API
+// My Holdings
+//https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=${orderBy}&per_page=${perPage}&page=${page}&sparkline=${sparkline}&price_change_percentage=${priceChangePerc}&ids=${ids}
+
+// Coin Market
+//https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=${orderBy}&per_page=${perPage}&page=${page}&sparkline=${sparkline}&price_change_percentage=${priceChangePerc}
+
+
+const dummyData = { portfolio, trendingCurrencies, transactionHistory, chartOptions, holdings, profile, settings };
 
 export default dummyData;
