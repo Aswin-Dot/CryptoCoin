@@ -1,7 +1,7 @@
 {
   "name": "cryptocurrency",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./node_modules/expo/AppEntry.js",
   "scripts": {
     "android": "expo run:android",
     "ios": "expo run:ios",
@@ -25,9 +25,11 @@
     "expo-status-bar": "~1.1.0",
     "expo-updates": "~0.10.13",
     "lodash": "^4.17.21",
+    "moment": "^2.29.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-chart-kit": "^6.11.0",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-linear-gradient": "^2.5.6",
